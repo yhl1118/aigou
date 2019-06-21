@@ -1,0 +1,16 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:7001/eureka  #网关也需要(ˇˍˇ) 向注册中心注册
+  instance:
+    prefer-ip-address: true  #使用ip注册到注册中心
+server:
+  port: 9001
+spring:
+  application:
+    name: AIGOU_ZUUL
+zuul:
+  routes:
+    aigou_plat: /login/**
+  ignored-services: "*"  #忽略所有访问，不能够直接去访问其他的资源
+  prefix: /aigou #前缀
